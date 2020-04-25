@@ -107,13 +107,15 @@ void dfs(int v, int cnt) {
         if (to[v][i] != -1)
             dfs(to[v][i], cnt + cost[i]);
 }
+/*
+additional 
 string t = "';
 for (int i = s.length() - 1; i >= 0; i--) {
         t = s[i] + t;
         add(t);
     }
 dfs(0, 0);
-
+*/
 ////
 int main(){
 fcin;
