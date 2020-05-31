@@ -38,29 +38,29 @@ int gcd(int x , int y){
 }
 
 ////////sieve of erathostenes
-  int p[N];
-  for(int i = 2 ; i*i < 10e5 ; i++){
-     for(int j = i ; j * i <= 10e5 ; j++){
-        p[j*i] = 1;
+int p[N];
+for(int i = 2 ; i*i < 10e5 ; i++){
+   for(int j = i ; j * i <= 10e5 ; j++){
+       p[j*i] = 1;
      }
-  }
+}
 ////////fenwick
-      int tree[N];
+int tree[N];
       
-      void update(int idx, int val) {
-        while (idx <= MaxIdx) {
-          tree[idx] += val;
-          idx += (idx & -idx);
-        }
-      }
-      int read(int idx) {
-        int sum = 0;
-        while (idx > 0) {
-          sum += tree[idx];
-          idx -= (idx & -idx);
-        }
-        return sum;
-      }
+void update(int idx, int val) {
+   while (idx <= MaxIdx) {
+     tree[idx] += val;
+     idx += (idx & -idx);
+    }
+}
+int read(int idx) {
+    int sum = 0;
+    while (idx > 0) {
+     sum += tree[idx];
+     idx -= (idx & -idx);
+  }
+  return sum;
+}
 /////////binary power
 long long binpow(long long a, long long b, long long m) {
     a %= m;
@@ -117,6 +117,10 @@ for (int i = s.length() - 1; i >= 0; i--) {
 dfs(0, 0);
 */
 ////
+////LIS 
+o(nlogn)
+///have to add
+  
 int main(){
 fcin;
 
