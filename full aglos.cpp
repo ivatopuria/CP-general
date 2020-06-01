@@ -117,10 +117,41 @@ for (int i = s.length() - 1; i >= 0; i--) {
 dfs(0, 0);
 */
 ////
+
+https://cp-algorithms.com/sequences/longest_increasing_subsequence.html
 ////LIS 
 o(nlogn)
-///have to add
   
+  
+d[0] = -INF;
+for(int i = 1 ; i <= n + 1 ; i++) d[i] = INF;
+for(int i = 1 ; i <= n ; i++){
+		l = 0 , r = n;
+		indx = 0;
+		while(l <= r){
+			mid = (l+r)/2;
+			if(d[mid] > a[i]){
+				indx = mid;
+				r = mid - 1;
+			}
+			else{
+				indx = mid + 1;
+				l = mid + 1;
+			}
+		}
+		if(d[indx-1] < a[i] && a[i] < d[indx+1]){
+			d[indx] = a[i];
+		}
+	}
+	for(int i = 1 ;i <= n ; i++){
+		if(d[i]!=INF)ans= i ;
+}
+
+
+
+////
+
+
 int main(){
 fcin;
 
