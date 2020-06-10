@@ -146,6 +146,39 @@ for(int i = 1 ; i <= n ; i++){
 
 
 ////
+Dijkstra
+
+for(int i = 1 ; i<= n ; i++) d[i] = LNF;
+    d[1] = 0;
+    st.insert(make_pair(0,1));
+    while(!st.empty()){
+        auto it = st.begin();
+        v = it->second;
+        st.erase(it);
+        for(auto each : vc[v]){
+            int to = each.S;
+            ll len = each.F;
+            if(d[v] + len < d[to]){
+                st.erase(make_pair(d[to] , to));
+                d[to] = d[v] + len;
+                path[to] = v;
+                st.insert(make_pair(d[to] , to));
+            }
+        }
+    }
+    if(d[n]==LNF) cout << -1;
+    else{
+    x = n;
+    while(path[x]!=0){
+        ans.pb(x);
+        x = path[x];
+    }
+    ans.pb(1);
+    reverse(ans.begin(),ans.end());
+    for(auto each : ans) cout << each << " ";
+    }
+
+
 
 
 int main(){
