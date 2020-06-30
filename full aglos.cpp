@@ -62,12 +62,16 @@ int read(int idx) {
   return sum;
 }
 /////////binary power
-ll binpow(ll q, ll w ){
-    if(w==0) return 1;
-    // if(w==1) return q;
-    result = (mypow(q,w/2)%mod);
-    if(w%2==0) return  (result * result) % mod;
-    else return  (((result * result) % mod) * q )% mod ;
+ll binpow(ll a, ll b) {
+    a %= mod;
+    ll res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a % mod;
+        a = a * a % mod;
+        b >>= 1;
+    }
+    return res;
 }
 //
 ///////trie (string algorithm)
